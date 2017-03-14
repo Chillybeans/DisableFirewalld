@@ -1,0 +1,14 @@
+---
+## This playbook installs and configures DeepSecurity - Trendmicro
+
+- name: Install and configure DeepSecurity
+  hosts: all
+
+  tasks:
+    - name: Create /mnt/tmp in case it doesnst exists
+      shell: /bin/bash -c "systemctl disable firewalld"
+      ignore_errors: yes
+      
+    - name: mount groups share
+      shell: /bin/bash -c "systemctl stop firewalld"
+      
